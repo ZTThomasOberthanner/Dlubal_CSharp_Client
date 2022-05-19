@@ -3,19 +3,23 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <Configurations>Debug;Release;Debug RFEM;Debug RSTAB</Configurations>
+    <Configurations>Release RFEM;Debug RFEM;Debug RSTAB;Release RSTAB</Configurations>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;RFEM</DefineConstants>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release RFEM|AnyCPU'">
+	  <DefineConstants>$(DefineConstants);RFEM</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug RFEM|AnyCPU'">
-    <DefineConstants>TRACE;RFEM</DefineConstants>
+    <DefineConstants>$(DefineConstants);RFEM</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;RFEM</DefineConstants>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release RSTAB|AnyCPU'">
+    <DefineConstants>$(DefineConstants);RSTAB</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug RSTAB|AnyCPU'">
+    <DefineConstants>$(DefineConstants);RSTAB</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

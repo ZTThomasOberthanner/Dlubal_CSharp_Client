@@ -39,10 +39,13 @@ namespace Dlubal.WS.Clients.DotNetClientTest
             new Settings(); // load setting from config file
             Console.Write("Version 0.3 ");
 
-            RfemSoapWsCoreClient.Info infoRfem = new RfemSoapWsCoreClient.Info();
-
-            RstabSoapWsCoreClient.Info infoRstab = new RstabSoapWsCoreClient.Info();
-            Console.Write($"Client {infoRstab.Verze()} ");
+#if RFEM
+            RfemSoapWsCoreClient.Info info = new RfemSoapWsCoreClient.Info();
+            //Console.Write($"Client {infoRstab.Verze()} "); // not implemented for RFEM?
+#elif RSTAB
+            RstabSoapWsCoreClient.Info info = new RstabSoapWsCoreClient.Info();
+            Console.Write($"Client {info.Verze()} ");
+#endif
 
             Console.WriteLine();
 
